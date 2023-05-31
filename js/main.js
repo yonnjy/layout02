@@ -3,6 +3,8 @@ $(function () {
         const current = $('.main_slide .slick-current');
 
         current.addClass('on').siblings().removeClass('on');
+        $('.main_visual .slide_num span').text(c ? (c + 1) : 1);
+        $('.main_visual .slide_num strong').text(s.slideCount);
         $('.main_visual .menu li').eq(0).addClass('on');
         $('.main_visual .menu li').eq(c).addClass('on')
             .siblings().removeClass('on');
@@ -45,5 +47,16 @@ $(function () {
     $('.pic_slide').slick({
         vertical: true,
         asNavFor: ".product_slide",
+    });
+
+    $('.to_top').on('click', function () {
+        $('html, body').animate({ scrollTop: 0 }, 600);
+    });
+
+    $('.scr').on('click', function (e) {
+        e.preventDefault();
+        const st = $(this.hash).offset().top;
+
+        $('html, body').animate({ scrollTop: st }, 900);
     });
 });

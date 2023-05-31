@@ -242,6 +242,17 @@
     padding: 0 15px;
 }
 
+.main_visual .slide_num {
+    position: absolute;
+    gap: 30px;
+    top: 100px;
+    left: 50%;
+    transform: translate(-100%, 0);
+    color: #fff;
+    margin: 0 0 0 700px;
+    padding: 0 15px;
+}
+
 .main_visual .scr::before {
     content: "";
     position: absolute;
@@ -362,4 +373,19 @@
     .main_product .content {
         flex-direction: column;
     }
+}
+
+.to_top {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    z-index: 999;
+}
+
+.to_top i {
+    color: #fff;
+    background: tomato;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
 }
