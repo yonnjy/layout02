@@ -1,4 +1,10 @@
 $(function () {
+
+    $(window).on('scroll', function () {
+        let sct = $(window).scrollTop();
+        sct > 0 ? $('.header').addClass('on') : $('.header').removeClass('on');
+    });
+
     $('.main_slide').on('init afterChange', function (e, s, c) {
         const current = $('.main_slide .slick-current');
 
@@ -11,6 +17,7 @@ $(function () {
     });
 
     $('.main_slide').slick({
+        arrows: false,
         autoplay: true,
         autoplaySpeed: 5000,
         speed: 1000,

@@ -49,10 +49,96 @@
     line-height: 19px;
 }
 
+/* header */
+/* .header h1 { 지금은 잘맞는데 어쩌다 안맞을때
+    font-size: 0;
+} */
+
+.header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid transparent;
+    z-index: 999;
+}
+
+.header.on {
+    border-bottom: 1px solid #ddd;
+}
+
+.header .heder_wrap {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.header.on .heder_wrap {
+    height: 70px;
+}
+
+.gnb {
+    margin: 0 0 0 auto;
+}
+
+.gnb>ul {
+    display: flex;
+    gap: 40px;
+}
+
+.gnb>ul>li {
+    position: relative;
+}
+
+.gnb>ul>li~li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translate(0, -50%);
+    width: 1px;
+    height: 12px;
+    background: #ddd;
+}
+
+.header .search {
+    margin: 0 0 0 50px;
+}
+
+.header .search input[type="text"] {
+    width: 100px;
+    border: none;
+    border-bottom: 1px solid #666;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Noto Sans KR';
+    transition: width 0.5s;
+}
+
+.header .search input[type="text"]::placeholder {
+    color: #ddd;
+}
+
+.header .search input[type="text"]:focus {
+    width: 160px;
+}
+
+.header .search input[type="text"]:focus::placeholder {
+    color: transparent;
+}
+
+.header .search button {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
 /* sec main_visual */
 .main_visual {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 101px);
     overflow: hidden;
 }
 
