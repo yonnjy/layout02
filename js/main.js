@@ -42,6 +42,9 @@ $(function () {
         slidesToShow: 3,
         asNavFor: ".pic_slide",
         focusOnSelect: true,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '20px',
         responsive: [{
             breakpoint: 768,
             settings: {
@@ -49,15 +52,41 @@ $(function () {
             }
         }]
     });
+    $('.product_slide2').slick({
+        slidesToShow: 3,
+        arrows: false,
+        dots: true,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+            }
+        }]
+    });
+
+    $('.main_big_product .arrows .left').on('click', function () {
+        $('.product_slide2').slick('slickPrev');
+    });
+    $('.main_big_product .arrows .right').on('click', function () {
+        $('.product_slide2').slick('slickNext');
+    });
+
     // 왼쪽글 오른쪽 이미지 같이 슬라이드 들어가는거 만들때
     // 큰이미지 작은이미지 슬라이드 착시현상 할때
     $('.pic_slide').slick({
         vertical: true,
+        arrows: false,
         asNavFor: ".product_slide",
     });
 
     $('.to_top').on('click', function () {
         $('html, body').animate({ scrollTop: 0 }, 600);
+    });
+
+    $('.history_menu li').on('click', function (e) {
+        e.preventDefault();
+        let idx = $(this).index();
+        $('.history_content li').eq(idx).addClass('on').siblings().removeClass('on');
     });
 
     $('.scr').on('click', function (e) {
