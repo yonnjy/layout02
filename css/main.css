@@ -77,20 +77,23 @@
     height: 70px;
 }
 
-.gnb {
+/* .gnb는 하나뿐이라서 단독사용도 가능함 */
+.header .gnb {
     margin: 0 0 0 auto;
 }
 
-.gnb>ul {
+.header .gnb>ul {
     display: flex;
     gap: 40px;
 }
 
-.gnb>ul>li {
+.header .gnb>ul>li {
     position: relative;
+    white-space: nowrap;
+    word-break: keep-all;
 }
 
-.gnb>ul>li~li::before {
+.header .gnb>ul>li~li::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -438,6 +441,36 @@
     text-align: right;
 }
 
+/* sec main_banner */
+.main_banner {
+    background: url(../images/mainvisual01.jpg) no-repeat fixed center center/cover;
+    filter: grayscale(1);
+    color: #fff;
+    text-align: center;
+    /* border-radius: 50px 0;
+    margin: 0 50px; */
+}
+
+.main_banner .title p {
+    margin: 0 0 60px 0;
+}
+
+.main_banner .title span {
+    text-transform: uppercase;
+    margin: 0 10px 0 0;
+    font-size: 12px;
+    vertical-align: 3px;
+    user-select: none;
+}
+
+.main_banner i {
+    filter: none;
+    padding: 10px;
+    border-radius: 50%;
+    /* 필터 제거해서 토마토 살리기 숙제야 */
+    background: tomato;
+}
+
 /* sec mian_product */
 
 .main_product {
@@ -455,12 +488,152 @@
     overflow: hidden;
 }
 
+.main_product .product_slide figure {
+    padding: 0 5px;
+}
+
+.main_product .product_slide figure img {
+    height: 230px;
+    object-fit: cover;
+    margin: 0 0 10px 0;
+}
+
+.main_product .product_slide figure strong {
+    font-size: 12px;
+}
+
 @media (max-width: 768px) {
     .main_product .content {
         flex-direction: column;
     }
 }
 
+/* secproduct2 */
+.main_big_product {
+    position: relative;
+    background: #f9f9f9;
+}
+
+.main_big_product .case {
+    overflow: hidden;
+}
+
+.main_big_product .product_slide2 {
+    margin: 0 -15px;
+}
+
+.main_big_product .arrows {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.main_big_product .arrows i {
+    padding: 20px 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.main_big_product .slick-dots {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.main_big_product .slick-dots li {
+    display: inline-block;
+}
+
+.main_big_product .slick-dots li button {
+    width: 20px;
+    height: 20px;
+    background: #ddd;
+    font-size: 12px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin: 0 2px;
+    cursor: pointer;
+    color: #333;
+}
+
+.main_big_product .slick-dots li.slick-active button {
+    background: #333;
+    color: #fff;
+}
+
+/* 이미지 라인이 안맞아서 m으로 땡겨줬어 */
+.main_big_product .product_slide2 figure {
+    padding: 0 15px;
+}
+
+/* history */
+.main_history .history {
+    display: flex;
+    gap: 30px;
+
+    /* 이미지 넣으니까 덜컹거려서 */
+    min-height: 400px;
+}
+
+.main_history .history>* {
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.main_history .history .history_menu li {
+    position: relative;
+    margin: 0 0 30px 0;
+    padding: 0 0 0 30px;
+    display: flex;
+    gap: 30px;
+}
+
+.main_history .history .history_menu li strong {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.main_history .history .history_menu li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 2px solid tomato;
+    border-radius: 50%;
+}
+
+.main_history .history .history_menu li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 4px;
+    bottom: -25px;
+    width: 2px;
+    background: tomato;
+}
+
+.main_history .history .history_content li {
+    height: 0;
+    overflow: hidden;
+}
+
+.main_history .history .history_content li.on {
+    height: auto;
+}
+
+.main_history .history .history_content figure {
+    margin: 0 0 10px 0;
+}
+
+/* footer */
 .to_top {
     position: fixed;
     bottom: 100px;

@@ -6,6 +6,12 @@
     font-weight: inherit;
 }
 
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     line-height: 1;
     color: #444;
