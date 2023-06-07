@@ -83,6 +83,11 @@ $(function () {
         $('html, body').animate({ scrollTop: 0 }, 600);
     });
 
+    $(window).on('scroll', function () {
+        let sct = $(window).scrollTop();
+        sct > 500 ? $('.to_top').addClass('on') : $('.to_top').removeClass('on');
+    })
+
     $('.history_menu li').on('click', function (e) {
         e.preventDefault();
         let idx = $(this).index();
@@ -94,5 +99,41 @@ $(function () {
         const st = $(this.hash).offset().top;
 
         $('html, body').animate({ scrollTop: st }, 900);
+    });
+
+    $('.portfolio_slide').slick({
+        centerMode: true,
+        // centerPadding: "100px",
+        arrows: false,
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true
+    });
+
+    $('.main_portfolio .tab_arrows .left').on('click', function () {
+        $('.portfolio_slide').slick('slickPrev');
+    });
+
+    $('.main_portfolio .tab_arrows .right').on('click', function () {
+        $('.portfolio_slide').slick('slickNext');
+    });
+
+    $('.portfolio_slide').on('init afterChange', function (e, s, c) {
+        console.log(c);
+        $('.main_portfolio .itm').eq(c).addClass('on')
+            .siblings().removeClass('on');
+    });
+
+    $('#fl').on('change', function () {
+        const lnk = $(this).val();
+        lnk && window.open(lnk);
+    });
+
+    $('.family_link2 span').on('click', function () {
+        $(this).toggleClass('on');
+        $(this).next().toggleClass('on');
     });
 });
